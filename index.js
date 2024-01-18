@@ -17,15 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const limiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutos
   max: 1, // Una solicitud por ventana de 5 minutos
-  keyGenerator: (req) => req.body.sessionId, // Utiliza el sessionId como clave para el límite
+  keyGenerator: (req) => req.ip, // Utiliza la Ip como clave para el límite
 });
 
 app.use('/send-email', limiter); // Aplica el límite solo a la ruta de envío de correos
 
 app.post('/send-email', async (req, res) => {
   try {
-    const { to, subject, text, sessionId } = req.body;
-
+    const { to, subject, text } = req.body;
     // Verificar el sessionId y el tiempo de la última solicitud
     // Aquí puedes implementar tu propia lógica para rastrear el tiempo de la última solicitud y el sessionId
 
