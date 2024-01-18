@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
@@ -9,7 +10,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Configurar bodyParser para parsear el cuerpo de las solicitudes
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
