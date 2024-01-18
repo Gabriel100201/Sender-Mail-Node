@@ -7,7 +7,7 @@ const rateLimit = require('express-rate-limit'); // Agrega express-rate-limit pa
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Configurar bodyParser para parsear el cuerpo de las solicitudes
 app.use(bodyParser.json());
