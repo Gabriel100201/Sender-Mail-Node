@@ -26,7 +26,7 @@ app.use('/send-email', limiter); // Aplica el límite solo a la ruta de envío d
 app.post('/send-email', async (req, res) => {
   try {
     const { to, subject, text, from } = req.body;
-    const subjectString = from + " " + subject;
+    const subjectString = from + ": " + subject;
     // Verificar el sessionId y el tiempo de la última solicitud
     // Aquí puedes implementar tu propia lógica para rastrear el tiempo de la última solicitud y el sessionId
 
