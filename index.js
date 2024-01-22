@@ -42,7 +42,7 @@ app.post('/send-email', async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to,
-      subjectString,
+      subject: subjectString,
       text,
     };
 
